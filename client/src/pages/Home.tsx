@@ -36,12 +36,11 @@ export default function Home() {
       >
         <div className="container flex items-center justify-between h-20">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 bg-gradient-to-br from-yellow-400 via-orange-400 to-orange-500 rounded-full flex items-center justify-center shadow-lg">
-              <span className="text-white font-bold text-lg">A</span>
-            </div>
-            <span className="font-display text-xl font-bold text-foreground">
-              AMANECER
-            </span>
+            <img
+              src="/images/logo-amanecer.png"
+              alt="Amanecer Logo"
+              className="h-12 w-auto drop-shadow-lg hover:drop-shadow-xl transition-all duration-300"
+            />
           </div>
           <div className="hidden md:flex items-center gap-8">
             <a
@@ -379,10 +378,11 @@ export default function Home() {
           <div className="grid md:grid-cols-4 gap-8 mb-8">
             <div>
               <div className="flex items-center gap-2 mb-4">
-                <div className="w-8 h-8 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-full flex items-center justify-center shadow-lg">
-                  <span className="text-white font-bold text-sm">A</span>
-                </div>
-                <span className="font-display font-bold">AMANECER</span>
+                <img
+                  src="/images/logo-amanecer.png"
+                  alt="Amanecer Logo"
+                  className="h-10 w-auto"
+                />
               </div>
               <p className="text-white/70 text-sm leading-relaxed">
                 Educación del Mañana - Empoderando jóvenes peruanos

@@ -1,14 +1,16 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Users, Zap, BookOpen, Award } from "lucide-react";
 import { useState, useEffect } from "react";
+import AnimatedSun from "@/components/AnimatedSun";
 
 /**
  * Amanecer: Educación del Mañana
- * Design Philosophy: Energía Ascendente - Minimalismo Dinámico
- * - Geometría angular y asimétrica sugiere movimiento hacia arriba
- * - Contraste extremo entre espacios en blanco y colores vibrantes
- * - Animaciones sutiles que refuerzan la dirección ascendente
- * - Tipografía audaz (Montserrat) para títulos + Inter para cuerpo
+ * Design Philosophy: Energía Suavizada - Atardecer Animado
+ * - Capas suavizadas que evocan el amanecer/atardecer
+ * - Animaciones fluidas y orgánicas
+ * - Sol animado como elemento central
+ * - Transiciones suaves entre secciones
+ * - Colores cálidos y tonos pasteles
  */
 
 export default function Home() {
@@ -23,16 +25,18 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-white text-foreground overflow-hidden">
+    <div className="min-h-screen bg-gradient-to-b from-white via-orange-50 to-white text-foreground overflow-hidden">
       {/* Navigation */}
       <nav
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          isScrolled ? "bg-white shadow-lg" : "bg-transparent"
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+          isScrolled
+            ? "bg-white/95 backdrop-blur-md shadow-lg"
+            : "bg-transparent"
         }`}
       >
         <div className="container flex items-center justify-between h-20">
-          <div className="flex items-center gap-2">
-            <div className="w-10 h-10 bg-gradient-to-br from-orange-500 to-yellow-500 rounded-full flex items-center justify-center">
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 bg-gradient-to-br from-yellow-400 via-orange-400 to-orange-500 rounded-full flex items-center justify-center shadow-lg">
               <span className="text-white font-bold text-lg">A</span>
             </div>
             <span className="font-display text-xl font-bold text-foreground">
@@ -40,96 +44,111 @@ export default function Home() {
             </span>
           </div>
           <div className="hidden md:flex items-center gap-8">
-            <a href="#mision" className="text-sm font-medium hover:text-primary transition">
+            <a
+              href="#mision"
+              className="text-sm font-medium hover:text-primary transition-colors duration-300"
+            >
               Misión
             </a>
-            <a href="#impacto" className="text-sm font-medium hover:text-primary transition">
+            <a
+              href="#impacto"
+              className="text-sm font-medium hover:text-primary transition-colors duration-300"
+            >
               Impacto
             </a>
-            <a href="#programas" className="text-sm font-medium hover:text-primary transition">
+            <a
+              href="#programas"
+              className="text-sm font-medium hover:text-primary transition-colors duration-300"
+            >
               Programas
             </a>
-            <Button className="bg-primary hover:bg-orange-600 text-white">
+            <Button className="bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white shadow-lg hover:shadow-xl transition-all duration-300">
               Únete Ahora
             </Button>
           </div>
         </div>
       </nav>
 
-      {/* Hero Section */}
+      {/* Hero Section with Sunset Layers */}
       <section className="relative pt-32 pb-20 md:pt-40 md:pb-32 overflow-hidden">
-        {/* Background Image */}
+        {/* Background Image - Sunset Layers */}
         <div
           className="absolute inset-0 z-0"
           style={{
-            backgroundImage: "url('/images/hero-bg.png')",
+            backgroundImage: "url('/images/hero-sunset-layers.png')",
             backgroundSize: "cover",
             backgroundPosition: "center",
+            backgroundAttachment: "fixed",
           }}
         />
 
-        {/* Dark overlay for text readability */}
-        <div className="absolute inset-0 bg-black/40 z-1" />
+        {/* Soft overlay */}
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-white/20 z-1" />
 
         {/* Content */}
         <div className="container relative z-10">
-          <div className="max-w-3xl">
-            <div className="animate-slide-up-in">
-              <h1 className="font-display text-5xl md:text-7xl font-bold leading-tight mb-6">
-                <span className="text-white">Cada día es un nuevo</span>
-                <br />
-                <span className="gradient-amanecer bg-clip-text text-transparent">
-                  AMANECER
-                </span>
-              </h1>
-            </div>
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div>
+              <div className="animate-slide-up-in">
+                <h1 className="font-display text-5xl md:text-6xl font-bold leading-tight mb-6 text-white drop-shadow-lg">
+                  <span>Cada día es un nuevo</span>
+                  <br />
+                  <span className="text-yellow-300">AMANECER</span>
+                </h1>
+              </div>
 
-            <div
-              className="animate-slide-up-in"
-              style={{ animationDelay: "0.2s" }}
-            >
-              <p className="text-lg md:text-xl text-white/90 mb-8 max-w-2xl">
-                Empoderamos estudiantes de zonas rurales y vulnerables, conectándolos con becas,
-                programas y oportunidades educativas para construir un Perú sin límites.
-              </p>
-            </div>
-
-            <div
-              className="flex flex-col sm:flex-row gap-4 animate-slide-up-in"
-              style={{ animationDelay: "0.4s" }}
-            >
-              <Button
-                size="lg"
-                className="bg-primary hover:bg-orange-600 text-white gap-2"
+              <div
+                className="animate-slide-up-in"
+                style={{ animationDelay: "0.2s" }}
               >
-                Explorar Oportunidades <ArrowRight className="w-5 h-5" />
-              </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                className="border-white text-white hover:bg-white/10"
+                <p className="text-lg md:text-xl text-white/95 mb-8 max-w-2xl drop-shadow leading-relaxed">
+                  Empoderamos estudiantes de zonas rurales y vulnerables, conectándolos con becas,
+                  programas y oportunidades educativas para construir un Perú sin límites.
+                </p>
+              </div>
+
+              <div
+                className="flex flex-col sm:flex-row gap-4 animate-slide-up-in"
+                style={{ animationDelay: "0.4s" }}
               >
-                Conocer Más
-              </Button>
+                <Button
+                  size="lg"
+                  className="bg-gradient-to-r from-yellow-400 to-orange-500 hover:from-yellow-500 hover:to-orange-600 text-white font-semibold gap-2 shadow-lg hover:shadow-xl transition-all duration-300"
+                >
+                  Explorar Oportunidades <ArrowRight className="w-5 h-5" />
+                </Button>
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="border-2 border-white text-white hover:bg-white/20 backdrop-blur-sm transition-all duration-300 font-semibold"
+                >
+                  Conocer Más
+                </Button>
+              </div>
+
+              {/* Stats */}
+              <div
+                className="grid grid-cols-2 md:grid-cols-3 gap-6 mt-16 animate-fade-in"
+                style={{ animationDelay: "0.6s" }}
+              >
+                {[
+                  { number: "14,000+", label: "Jóvenes impactados" },
+                  { number: "2023", label: "Desde nuestro inicio" },
+                  { number: "∞", label: "Oportunidades" },
+                ].map((stat, idx) => (
+                  <div key={idx} className="backdrop-blur-sm bg-white/10 p-4 rounded-xl border border-white/20">
+                    <p className="text-2xl md:text-3xl font-bold text-yellow-300 drop-shadow">
+                      {stat.number}
+                    </p>
+                    <p className="text-white/90 text-sm mt-2 font-medium">{stat.label}</p>
+                  </div>
+                ))}
+              </div>
             </div>
 
-            {/* Stats */}
-            <div
-              className="grid grid-cols-2 md:grid-cols-3 gap-6 mt-16 animate-fade-in"
-              style={{ animationDelay: "0.6s" }}
-            >
-              <div>
-                <p className="text-3xl md:text-4xl font-bold text-secondary">14,000+</p>
-                <p className="text-white/80 text-sm mt-2">Jóvenes impactados</p>
-              </div>
-              <div>
-                <p className="text-3xl md:text-4xl font-bold text-secondary">2023</p>
-                <p className="text-white/80 text-sm mt-2">Desde nuestro inicio</p>
-              </div>
-              <div>
-                <p className="text-3xl md:text-4xl font-bold text-secondary">∞</p>
-                <p className="text-white/80 text-sm mt-2">Oportunidades</p>
-              </div>
+            {/* Animated Sun */}
+            <div className="hidden md:flex justify-center items-center animate-float-soft">
+              <AnimatedSun />
             </div>
           </div>
         </div>
@@ -137,33 +156,43 @@ export default function Home() {
 
       {/* Misión Section */}
       <section id="mision" className="py-20 md:py-32 bg-white relative overflow-hidden">
-        <div className="container">
+        {/* Wavy background */}
+        <div
+          className="absolute inset-0 opacity-30 z-0"
+          style={{
+            backgroundImage: "url('/images/wavy-layers-bg.png')",
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+          }}
+        />
+
+        <div className="container relative z-10">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="animate-slide-up-in">
               <div className="inline-block mb-4">
-                <span className="bg-secondary/20 text-primary px-4 py-2 rounded-full text-sm font-semibold">
+                <span className="bg-gradient-to-r from-orange-200 to-yellow-200 text-orange-700 px-4 py-2 rounded-full text-sm font-semibold shadow-md">
                   Nuestra Misión
                 </span>
               </div>
-              <h2 className="font-display text-4xl md:text-5xl font-bold mb-6">
+              <h2 className="font-display text-4xl md:text-5xl font-bold mb-6 text-foreground">
                 Educación sin límites para todos
               </h2>
-              <p className="text-lg text-muted-foreground mb-6">
+              <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
                 Creemos en un Perú donde cada joven pueda soñar en grande y construir su futuro sin
                 límites. A través de charlas, webinars y nuestro Calendario Mensual de Oportunidades,
                 conectamos a estudiantes con las herramientas que necesitan para triunfar.
               </p>
-              <Button className="bg-primary hover:bg-orange-600 text-white gap-2">
+              <Button className="bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white gap-2 shadow-lg hover:shadow-xl transition-all duration-300 font-semibold">
                 Descubre Cómo Ayudamos <ArrowRight className="w-4 h-4" />
               </Button>
             </div>
 
-            <div className="relative h-96 md:h-full">
+            <div className="relative h-96 md:h-full animate-scale-up">
               <div
-                className="absolute inset-0 bg-gradient-to-br from-primary/10 to-secondary/10 rounded-2xl animate-scale-up"
+                className="absolute inset-0 bg-gradient-to-br from-orange-100/40 to-yellow-100/40 rounded-3xl backdrop-blur-sm border border-orange-200/50 shadow-xl"
                 style={{
-                  backgroundImage: "url('/images/pattern-accent.png')",
-                  backgroundSize: "400px",
+                  backgroundImage: "url('/images/wavy-layers-bg.png')",
+                  backgroundSize: "300px",
                   backgroundPosition: "center",
                 }}
               />
@@ -175,23 +204,18 @@ export default function Home() {
       {/* Impacto Section */}
       <section
         id="impacto"
-        className="py-20 md:py-32 bg-black text-white relative overflow-hidden"
+        className="py-20 md:py-32 bg-gradient-to-b from-orange-50 to-white relative overflow-hidden"
       >
-        {/* Background pattern */}
-        <div
-          className="absolute inset-0 opacity-10"
-          style={{
-            backgroundImage: "url('/images/pattern-accent.png')",
-            backgroundSize: "300px",
-          }}
-        />
+        {/* Decorative elements */}
+        <div className="absolute top-0 left-0 w-96 h-96 bg-yellow-200/10 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2" />
+        <div className="absolute bottom-0 right-0 w-96 h-96 bg-orange-200/10 rounded-full blur-3xl translate-x-1/2 translate-y-1/2" />
 
         <div className="container relative z-10">
           <div className="text-center mb-16 animate-slide-up-in">
-            <h2 className="font-display text-4xl md:text-5xl font-bold mb-4">
+            <h2 className="font-display text-4xl md:text-5xl font-bold mb-4 text-foreground">
               Nuestro Impacto
             </h2>
-            <p className="text-xl text-white/80 max-w-2xl mx-auto">
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
               Transformando vidas a través de la educación y las oportunidades
             </p>
           </div>
@@ -203,34 +227,46 @@ export default function Home() {
                 title: "Comunidad",
                 description: "14,000+ jóvenes conectados",
                 delay: "0s",
+                color: "from-orange-400 to-orange-500",
               },
               {
                 icon: BookOpen,
                 title: "Educación",
                 description: "Programas y becas accesibles",
                 delay: "0.1s",
+                color: "from-yellow-400 to-orange-400",
               },
               {
                 icon: Zap,
                 title: "Energía",
                 description: "Charlas y webinars mensuales",
                 delay: "0.2s",
+                color: "from-orange-400 to-red-400",
               },
               {
                 icon: Award,
                 title: "Éxito",
                 description: "Historias de transformación",
                 delay: "0.3s",
+                color: "from-yellow-300 to-orange-400",
               },
             ].map((item, idx) => (
               <div
                 key={idx}
-                className="bg-white/5 border border-white/10 rounded-xl p-6 hover:bg-white/10 transition-all duration-300 animate-slide-up-in"
+                className="group animate-slide-up-in"
                 style={{ animationDelay: item.delay }}
               >
-                <item.icon className="w-12 h-12 text-secondary mb-4" />
-                <h3 className="font-display text-xl font-bold mb-2">{item.title}</h3>
-                <p className="text-white/70">{item.description}</p>
+                <div className={`bg-gradient-to-br ${item.color} p-0.5 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300`}>
+                  <div className="bg-white p-6 rounded-2xl h-full">
+                    <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${item.color} p-2.5 mb-4 flex items-center justify-center`}>
+                      <item.icon className="w-6 h-6 text-white" />
+                    </div>
+                    <h3 className="font-display text-xl font-bold mb-2 text-foreground">
+                      {item.title}
+                    </h3>
+                    <p className="text-muted-foreground">{item.description}</p>
+                  </div>
+                </div>
               </div>
             ))}
           </div>
@@ -241,7 +277,7 @@ export default function Home() {
       <section id="programas" className="py-20 md:py-32 bg-white relative overflow-hidden">
         <div className="container">
           <div className="text-center mb-16 animate-slide-up-in">
-            <h2 className="font-display text-4xl md:text-5xl font-bold mb-4">
+            <h2 className="font-display text-4xl md:text-5xl font-bold mb-4 text-foreground">
               Nuestros Programas
             </h2>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
@@ -278,12 +314,16 @@ export default function Home() {
                 className="group relative animate-slide-up-in"
                 style={{ animationDelay: program.delay }}
               >
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-secondary/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                <div className="relative p-8 border border-border rounded-2xl hover:border-primary transition-colors duration-300">
-                  <div className="text-4xl mb-4">{program.icon}</div>
-                  <h3 className="font-display text-2xl font-bold mb-3">{program.title}</h3>
-                  <p className="text-muted-foreground mb-6">{program.description}</p>
-                  <button className="text-primary font-semibold flex items-center gap-2 hover:gap-3 transition-all">
+                <div className="absolute inset-0 bg-gradient-to-br from-orange-100 to-yellow-100 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur" />
+                <div className="relative p-8 border-2 border-orange-200 rounded-2xl hover:border-orange-400 transition-all duration-300 bg-white/80 backdrop-blur-sm">
+                  <div className="text-5xl mb-4">{program.icon}</div>
+                  <h3 className="font-display text-2xl font-bold mb-3 text-foreground">
+                    {program.title}
+                  </h3>
+                  <p className="text-muted-foreground mb-6 leading-relaxed">
+                    {program.description}
+                  </p>
+                  <button className="text-orange-600 font-semibold flex items-center gap-2 hover:gap-3 transition-all duration-300 group-hover:text-orange-700">
                     Conocer más <ArrowRight className="w-4 h-4" />
                   </button>
                 </div>
@@ -298,32 +338,33 @@ export default function Home() {
         <div
           className="absolute inset-0 z-0"
           style={{
-            backgroundImage: "url('/images/opportunity-section-bg.png')",
+            backgroundImage: "url('/images/sun-animation-bg.png')",
             backgroundSize: "cover",
             backgroundPosition: "center",
+            backgroundAttachment: "fixed",
           }}
         />
-        <div className="absolute inset-0 bg-black/50 z-1" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/40 to-black/50 z-1" />
 
         <div className="container relative z-10 text-center">
           <div className="max-w-2xl mx-auto animate-slide-up-in">
-            <h2 className="font-display text-4xl md:text-5xl font-bold text-white mb-6">
+            <h2 className="font-display text-4xl md:text-5xl font-bold text-white mb-6 drop-shadow-lg">
               ¿Listo para tu amanecer?
             </h2>
-            <p className="text-xl text-white/90 mb-8">
+            <p className="text-xl text-white/95 mb-8 drop-shadow leading-relaxed">
               Únete a miles de jóvenes que ya están transformando sus vidas con Amanecer.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button
                 size="lg"
-                className="bg-secondary hover:bg-yellow-600 text-black font-semibold gap-2"
+                className="bg-gradient-to-r from-yellow-400 to-orange-500 hover:from-yellow-500 hover:to-orange-600 text-white font-semibold gap-2 shadow-lg hover:shadow-xl transition-all duration-300"
               >
                 Registrarme Ahora <ArrowRight className="w-5 h-5" />
               </Button>
               <Button
                 size="lg"
                 variant="outline"
-                className="border-white text-white hover:bg-white/10"
+                className="border-2 border-white text-white hover:bg-white/20 backdrop-blur-sm transition-all duration-300 font-semibold"
               >
                 Contactar
               </Button>
@@ -333,17 +374,17 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-black text-white py-12 border-t border-white/10">
+      <footer className="bg-gradient-to-b from-gray-900 to-black text-white py-12 border-t border-orange-500/20">
         <div className="container">
           <div className="grid md:grid-cols-4 gap-8 mb-8">
             <div>
               <div className="flex items-center gap-2 mb-4">
-                <div className="w-8 h-8 bg-gradient-to-br from-orange-500 to-yellow-500 rounded-full flex items-center justify-center">
-                  <span className="text-white font-bold">A</span>
+                <div className="w-8 h-8 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-full flex items-center justify-center shadow-lg">
+                  <span className="text-white font-bold text-sm">A</span>
                 </div>
                 <span className="font-display font-bold">AMANECER</span>
               </div>
-              <p className="text-white/70 text-sm">
+              <p className="text-white/70 text-sm leading-relaxed">
                 Educación del Mañana - Empoderando jóvenes peruanos
               </p>
             </div>
@@ -351,17 +392,17 @@ export default function Home() {
               <h4 className="font-display font-bold mb-4">Programa</h4>
               <ul className="space-y-2 text-sm text-white/70">
                 <li>
-                  <a href="#" className="hover:text-white transition">
+                  <a href="#" className="hover:text-orange-400 transition-colors duration-300">
                     Oportunidades
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="hover:text-white transition">
+                  <a href="#" className="hover:text-orange-400 transition-colors duration-300">
                     Webinars
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="hover:text-white transition">
+                  <a href="#" className="hover:text-orange-400 transition-colors duration-300">
                     Mentoría
                   </a>
                 </li>
@@ -371,17 +412,17 @@ export default function Home() {
               <h4 className="font-display font-bold mb-4">Empresa</h4>
               <ul className="space-y-2 text-sm text-white/70">
                 <li>
-                  <a href="#" className="hover:text-white transition">
+                  <a href="#" className="hover:text-orange-400 transition-colors duration-300">
                     Sobre Nosotros
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="hover:text-white transition">
+                  <a href="#" className="hover:text-orange-400 transition-colors duration-300">
                     Contacto
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="hover:text-white transition">
+                  <a href="#" className="hover:text-orange-400 transition-colors duration-300">
                     Blog
                   </a>
                 </li>
@@ -391,17 +432,17 @@ export default function Home() {
               <h4 className="font-display font-bold mb-4">Síguenos</h4>
               <ul className="space-y-2 text-sm text-white/70">
                 <li>
-                  <a href="#" className="hover:text-white transition">
+                  <a href="#" className="hover:text-orange-400 transition-colors duration-300">
                     Instagram
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="hover:text-white transition">
+                  <a href="#" className="hover:text-orange-400 transition-colors duration-300">
                     Facebook
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="hover:text-white transition">
+                  <a href="#" className="hover:text-orange-400 transition-colors duration-300">
                     LinkedIn
                   </a>
                 </li>

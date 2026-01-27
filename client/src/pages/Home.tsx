@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, Users, Zap, BookOpen, Award } from "lucide-react";
 import { useState, useEffect } from "react";
 import AnimatedSun from "@/components/AnimatedSun";
+import TestimoniosSection from "@/components/TestimoniosSection";
 
 /**
  * Amanecer: Educación del Mañana
@@ -331,6 +332,9 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* Testimonios Section */}
+      <TestimoniosSection />
 
       {/* CTA Section */}
       <section className="relative py-20 md:py-32 overflow-hidden">

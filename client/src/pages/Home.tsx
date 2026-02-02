@@ -3,6 +3,7 @@ import { ArrowRight, Users, Zap, BookOpen, Award } from "lucide-react";
 import { useState, useEffect } from "react";
 import AnimatedSun from "@/components/AnimatedSun";
 import TestimoniosSection from "@/components/TestimoniosSection";
+import CommunitySection from "@/components/CommunitySection";
 
 /**
  * Amanecer: Educación del Mañana
@@ -336,6 +337,9 @@ export default function Home() {
       {/* Testimonios Section */}
       <TestimoniosSection />
 
+      {/* Community Section */}
+      <CommunitySection />
+
       {/* CTA Section */}
       <section className="relative py-20 md:py-32 overflow-hidden">
         <div
@@ -436,18 +440,18 @@ export default function Home() {
               <h4 className="font-display font-bold mb-4">Síguenos</h4>
               <ul className="space-y-2 text-sm text-white/70">
                 <li>
-                  <a href="#" className="hover:text-orange-400 transition-colors duration-300">
+                  <a href="https://www.instagram.com/amanecer.edu.ong?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer" className="hover:text-orange-400 transition-colors duration-300">
                     Instagram
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="hover:text-orange-400 transition-colors duration-300">
-                    Facebook
+                  <a href="https://chat.whatsapp.com/Kxtj5DtwLLf8YNRyFpgGfa" target="_blank" rel="noopener noreferrer" className="hover:text-orange-400 transition-colors duration-300">
+                    WhatsApp Comunidad
                   </a>
                 </li>
                 <li>
                   <a href="#" className="hover:text-orange-400 transition-colors duration-300">
-                    LinkedIn
+                    Contacto
                   </a>
                 </li>
               </ul>

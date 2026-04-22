@@ -1,5 +1,8 @@
 # Amanecer: Educación del Mañana - Conceptos de Diseño
 
+# Amanecer Org Page
+Confirmando deploy limpio en Vercel 🚀
+
 ## Contexto
 Organización juvenil peruana que empodera estudiantes de zonas rurales y vulnerables con becas, programas y oportunidades educativas. Paleta de colores: naranja vibrante, amarillo dorado, negro profundo, blanco limpio.
 

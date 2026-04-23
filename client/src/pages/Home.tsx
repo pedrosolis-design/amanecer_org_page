@@ -76,7 +76,7 @@ export default function Home() {
         <div
           className="absolute inset-0 z-0"
           style={{
-            backgroundImage: "url('/images/hero-sunset-layers.png')",
+            backgroundImage: "url('/manus-storage/hero-sunset-layers_d15852f4.png')",
             backgroundSize: "cover",
             backgroundPosition: "center",
             backgroundAttachment: "fixed",
@@ -161,7 +161,7 @@ export default function Home() {
         <div
           className="absolute inset-0 opacity-30 z-0"
           style={{
-            backgroundImage: "url('/images/wavy-layers-bg.png')",
+            backgroundImage: "url('/manus-storage/wavy-layers-bg_50dfa999.png')",
             backgroundSize: "cover",
             backgroundPosition: "center",
           }}
@@ -192,7 +192,7 @@ export default function Home() {
               <div
                 className="absolute inset-0 bg-gradient-to-br from-orange-100/40 to-yellow-100/40 rounded-3xl backdrop-blur-sm border border-orange-200/50 shadow-xl"
                 style={{
-                  backgroundImage: "url('/images/wavy-layers-bg.png')",
+                  backgroundImage: "url('/manus-storage/wavy-layers-bg_50dfa999.png')",
                   backgroundSize: "300px",
                   backgroundPosition: "center",
                 }}
@@ -345,7 +345,7 @@ export default function Home() {
         <div
           className="absolute inset-0 z-0"
           style={{
-            backgroundImage: "url('/images/sun-animation-bg.png')",
+            backgroundImage: "url('/manus-storage/sun-animation-bg_aa7f91ed.png')",
             backgroundSize: "cover",
             backgroundPosition: "center",
             backgroundAttachment: "fixed",

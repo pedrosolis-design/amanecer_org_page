@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { Link } from "wouter";
 import AnimatedSun from "@/components/AnimatedSun";
 import TestimoniosSection from "@/components/TestimoniosSection";
+import GallerySection from "@/components/GallerySection";
 import CommunitySection from "@/components/CommunitySection";
 import RegistrationForm from "@/components/RegistrationForm";
 
@@ -340,6 +341,9 @@ export default function Home() {
 
       {/* Testimonios Section */}
       <TestimoniosSection />
+
+      {/* Gallery Section */}
+      <GallerySection />
 
       {/* Community Section */}
       <CommunitySection />

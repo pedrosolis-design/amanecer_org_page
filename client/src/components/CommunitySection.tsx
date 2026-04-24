@@ -3,7 +3,7 @@
  * Displays community links, social media, and active convocations
  */
 
-import { MessageCircle, Instagram, Megaphone } from "lucide-react";
+import { MessageCircle, Instagram, Megaphone, Linkedin } from "lucide-react";
 
 export default function CommunitySection() {
   const convocations = [
@@ -78,6 +78,24 @@ export default function CommunitySection() {
                     @amanecer.edu.ong
                   </h4>
                   <p className="text-sm text-muted-foreground">Síguenos en Instagram</p>
+                </div>
+              </a>
+
+              {/* LinkedIn */}
+              <a
+                href="https://www.linkedin.com/company/amanecer-edu/?viewAsMember=true"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex items-center gap-4 p-5 rounded-2xl border-2 border-blue-200 hover:border-blue-400 bg-blue-50/50 hover:bg-blue-50 transition-all duration-300 shadow-sm hover:shadow-lg"
+              >
+                <div className="w-14 h-14 bg-gradient-to-br from-blue-500 to-blue-700 rounded-full flex items-center justify-center text-white shadow-lg group-hover:scale-110 transition-transform duration-300">
+                  <Linkedin className="w-7 h-7" />
+                </div>
+                <div>
+                  <h4 className="font-display font-bold text-foreground text-lg">
+                    Amanecer Edu
+                  </h4>
+                  <p className="text-sm text-muted-foreground">Síguenos en LinkedIn</p>
                 </div>
               </a>
             </div>

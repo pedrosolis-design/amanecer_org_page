@@ -20,7 +20,7 @@ export default function TestimoniosSection() {
         <div className="grid md:grid-cols-2 gap-8 items-center mb-16 animate-slide-up-in">
           <div className="relative h-96 md:h-full overflow-hidden rounded-2xl shadow-2xl">
             <img
-              src="/images/chaynabamba-story.png"
+              src="/images/chaynabamba-real.png"
               alt="Visita a Chaynabamba, Huancavelica"
               className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
             />

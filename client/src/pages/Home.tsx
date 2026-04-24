@@ -1,9 +1,11 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Users, Zap, BookOpen, Award } from "lucide-react";
 import { useState, useEffect } from "react";
+import { Link } from "wouter";
 import AnimatedSun from "@/components/AnimatedSun";
 import TestimoniosSection from "@/components/TestimoniosSection";
 import CommunitySection from "@/components/CommunitySection";
+import RegistrationForm from "@/components/RegistrationForm";
 
 /**
  * Amanecer: Educación del Mañana
@@ -118,13 +120,15 @@ export default function Home() {
                 >
                   Explorar Oportunidades <ArrowRight className="w-5 h-5" />
                 </Button>
-                <Button
-                  size="lg"
-                  variant="outline"
-                  className="border-2 border-white text-white hover:bg-white/20 backdrop-blur-sm transition-all duration-300 font-semibold"
-                >
-                  Conocer Más
-                </Button>
+                <Link href="/about">
+                  <Button
+                    size="lg"
+                    variant="outline"
+                    className="border-2 border-white text-white hover:bg-white/20 backdrop-blur-sm transition-all duration-300 font-semibold cursor-pointer"
+                  >
+                    Conocer Más
+                  </Button>
+                </Link>
               </div>
 
               {/* Stats */}
@@ -340,7 +344,7 @@ export default function Home() {
       {/* Community Section */}
       <CommunitySection />
 
-      {/* CTA Section */}
+      {/* Registration Form Section */}
       <section className="relative py-20 md:py-32 overflow-hidden">
         <div
           className="absolute inset-0 z-0"
@@ -353,29 +357,17 @@ export default function Home() {
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/40 to-black/50 z-1" />
 
-        <div className="container relative z-10 text-center">
+        <div className="container relative z-10">
           <div className="max-w-2xl mx-auto animate-slide-up-in">
-            <h2 className="font-display text-4xl md:text-5xl font-bold text-white mb-6 drop-shadow-lg">
-              ¿Listo para tu amanecer?
-            </h2>
-            <p className="text-xl text-white/95 mb-8 drop-shadow leading-relaxed">
-              Únete a miles de jóvenes que ya están transformando sus vidas con Amanecer.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button
-                size="lg"
-                className="bg-gradient-to-r from-yellow-400 to-orange-500 hover:from-yellow-500 hover:to-orange-600 text-white font-semibold gap-2 shadow-lg hover:shadow-xl transition-all duration-300"
-              >
-                Registrarme Ahora <ArrowRight className="w-5 h-5" />
-              </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                className="border-2 border-white text-white hover:bg-white/20 backdrop-blur-sm transition-all duration-300 font-semibold"
-              >
-                Contactar
-              </Button>
+            <div className="text-center mb-12">
+              <h2 className="font-display text-4xl md:text-5xl font-bold text-white mb-6 drop-shadow-lg">
+                ¿Listo para tu amanecer?
+              </h2>
+              <p className="text-xl text-white/95 drop-shadow leading-relaxed">
+                Completa el formulario y te conectaremos con oportunidades educativas
+              </p>
             </div>
+            <RegistrationForm />
           </div>
         </div>
       </section>

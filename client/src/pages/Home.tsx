@@ -5,6 +5,7 @@ import { Link } from "wouter";
 import AnimatedSun from "@/components/AnimatedSun";
 import TestimoniosSection from "@/components/TestimoniosSection";
 import GallerySection from "@/components/GallerySection";
+import ConvocatoriasSection from "@/components/ConvocatoriasSection";
 import CommunitySection from "@/components/CommunitySection";
 import RegistrationForm from "@/components/RegistrationForm";
 
@@ -344,6 +345,9 @@ export default function Home() {
 
       {/* Gallery Section */}
       <GallerySection />
+
+      {/* Convocatorias Section */}
+      <ConvocatoriasSection />
 
       {/* Community Section */}
       <CommunitySection />

@@ -67,15 +67,11 @@ export default function Home() {
             >
               Programas
             </a>
-            <Link href="/blog">
-              <a className="text-sm font-medium hover:text-primary transition-colors duration-300">
-                Blog
-              </a>
+            <Link href="/blog" className="text-sm font-medium hover:text-primary transition-colors duration-300">
+              Blog
             </Link>
-            <Link href="/oportunidades">
-              <a className="text-sm font-medium hover:text-primary transition-colors duration-300">
-                Oportunidades
-              </a>
+            <Link href="/oportunidades" className="text-sm font-medium hover:text-primary transition-colors duration-300">
+              Oportunidades
             </Link>
             <Link href="/convocatoria">
               <button className="text-sm font-medium hover:text-primary transition-colors duration-300 px-4 py-2 rounded-lg bg-purple-600 text-white hover:bg-purple-700">

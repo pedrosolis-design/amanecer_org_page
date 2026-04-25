@@ -6,21 +6,53 @@ import { toast } from "sonner";
 /**
  * Componente de formulario de registro
  * Recopila información de estudiantes interesados en Amanecer
+ * Envía datos a 23.amanecer@gmail.com
  * Estilo: Diseño suavizado con gradientes cálidos y animaciones fluidas
  */
+
+const DEPARTAMENTOS = [
+  "Selecciona tu departamento",
+  "Áncash",
+  "Apurímac",
+  "Arequipa",
+  "Ayacucho",
+  "Cajamarca",
+  "Cusco",
+  "Huancavelica",
+  "Huánuco",
+  "Ica",
+  "Junín",
+  "La Libertad",
+  "Lambayeque",
+  "Lima",
+  "Loreto",
+  "Madre de Dios",
+  "Moquegua",
+  "Pasco",
+  "Piura",
+  "Puno",
+  "San Martín",
+  "Tacna",
+  "Tumbes",
+  "Ucayali",
+  "Callao",
+];
+
 export default function RegistrationForm() {
   const [formData, setFormData] = useState({
     nombre: "",
     email: "",
     telefono: "",
-    zona: "",
+    departamento: "",
     grado: "",
+    mensaje: "",
+    tipo: "inscripcion", // inscripcion o mensaje
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
+    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
   ) => {
     const { name, value } = e.target;
     setFormData((prev) => ({
@@ -37,56 +69,108 @@ export default function RegistrationForm() {
       !formData.nombre ||
       !formData.email ||
       !formData.telefono ||
-      !formData.zona ||
+      !formData.departamento ||
       !formData.grado
     ) {
-      toast.error("Por favor completa todos los campos");
+      toast.error("Por favor completa todos los campos requeridos");
       return;
     }
 
     setIsSubmitting(true);
 
     try {
-      // Simular envío de datos (en producción, conectar a backend)
-      await new Promise((resolve) => setTimeout(resolve, 1000));
+      // Enviar email usando FormSubmit o similar servicio
+      const emailBody = `
+Nuevo ${formData.tipo === "inscripcion" ? "Registro" : "Mensaje"} en Amanecer
 
-      // Mostrar éxito
-      toast.success(
-        `¡Bienvenido ${formData.nombre}! Te hemos agregado a nuestra comunidad.`
-      );
+Nombre: ${formData.nombre}
+Email: ${formData.email}
+Teléfono: ${formData.telefono}
+Departamento: ${formData.departamento}
+Grado: ${formData.grado}
+${formData.mensaje ? `\nMensaje:\n${formData.mensaje}` : ""}
+      `;
 
-      // Limpiar formulario
-      setFormData({
-        nombre: "",
-        email: "",
-        telefono: "",
-        zona: "",
-        grado: "",
+      // Usar FormSubmit.co para enviar el email
+      const response = await fetch("https://formsubmit.co/ajax/23.amanecer@gmail.com", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          nombre: formData.nombre,
+          email: formData.email,
+          telefono: formData.telefono,
+          departamento: formData.departamento,
+          grado: formData.grado,
+          tipo: formData.tipo,
+          mensaje: formData.mensaje,
+          _subject: `${formData.tipo === "inscripcion" ? "Nuevo Registro" : "Nuevo Mensaje"} - Amanecer`,
+        }),
       });
 
-      // Log para desarrollo
-      console.log("Datos del formulario:", formData);
+      if (response.ok) {
+        toast.success(
+          formData.tipo === "inscripcion"
+            ? "¡Registro completado! Nos pondremos en contacto pronto."
+            : "¡Mensaje enviado! Gracias por contactarnos."
+        );
+        setFormData({
+          nombre: "",
+          email: "",
+          telefono: "",
+          departamento: "",
+          grado: "",
+          mensaje: "",
+          tipo: "inscripcion",
+        });
+      } else {
+        toast.error("Hubo un error al enviar. Por favor intenta de nuevo.");
+      }
     } catch (error) {
-      toast.error("Hubo un error. Intenta de nuevo.");
+      console.error("Error:", error);
+      toast.error("Error de conexión. Por favor intenta de nuevo.");
     } finally {
       setIsSubmitting(false);
     }
   };
 
   return (
-    <div className="w-full max-w-md mx-auto p-6 rounded-2xl bg-gradient-to-br from-orange-50 to-yellow-50 border-2 border-orange-200 shadow-lg hover:shadow-xl transition-shadow duration-300">
-      <h2 className="text-2xl font-bold text-orange-600 mb-2 font-fredoka">
-        Únete a Amanecer
-      </h2>
-      <p className="text-gray-600 mb-6 text-sm">
-        Completa el formulario y te conectaremos con oportunidades educativas
-      </p>
+    <div className="w-full max-w-2xl mx-auto">
+      <form onSubmit={handleSubmit} className="space-y-6">
+        {/* Tipo de solicitud */}
+        <div className="grid grid-cols-2 gap-4">
+          <label className="flex items-center gap-3 p-4 rounded-lg border-2 border-transparent cursor-pointer hover:border-orange-300 transition-all"
+            style={{ backgroundColor: formData.tipo === "inscripcion" ? "rgba(255,140,0,0.1)" : "transparent" }}>
+            <input
+              type="radio"
+              name="tipo"
+              value="inscripcion"
+              checked={formData.tipo === "inscripcion"}
+              onChange={handleChange}
+              className="w-4 h-4"
+            />
+            <span className="font-medium">Inscribirse</span>
+          </label>
+          <label className="flex items-center gap-3 p-4 rounded-lg border-2 border-transparent cursor-pointer hover:border-orange-300 transition-all"
+            style={{ backgroundColor: formData.tipo === "mensaje" ? "rgba(255,140,0,0.1)" : "transparent" }}>
+            <input
+              type="radio"
+              name="tipo"
+              value="mensaje"
+              checked={formData.tipo === "mensaje"}
+              onChange={handleChange}
+              className="w-4 h-4"
+            />
+            <span className="font-medium">Enviar Mensaje</span>
+          </label>
+        </div>
 
-      <form onSubmit={handleSubmit} className="space-y-4">
         {/* Nombre */}
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-2">
-            Nombre Completo
+          <label className="block text-sm font-semibold mb-2 text-foreground">
+            Nombre Completo *
           </label>
           <Input
             type="text"
@@ -94,14 +178,14 @@ export default function RegistrationForm() {
             value={formData.nombre}
             onChange={handleChange}
             placeholder="Tu nombre"
-            className="w-full px-4 py-2 rounded-lg border-2 border-orange-200 focus:border-orange-500 focus:ring-2 focus:ring-orange-200 transition-all"
+            className="w-full px-4 py-3 rounded-lg border border-orange-200 focus:border-orange-500 focus:ring-2 focus:ring-orange-200 transition-all"
           />
         </div>
 
         {/* Email */}
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-2">
-            Correo Electrónico
+          <label className="block text-sm font-semibold mb-2 text-foreground">
+            Email *
           </label>
           <Input
             type="email"
@@ -109,14 +193,14 @@ export default function RegistrationForm() {
             value={formData.email}
             onChange={handleChange}
             placeholder="tu@email.com"
-            className="w-full px-4 py-2 rounded-lg border-2 border-orange-200 focus:border-orange-500 focus:ring-2 focus:ring-orange-200 transition-all"
+            className="w-full px-4 py-3 rounded-lg border border-orange-200 focus:border-orange-500 focus:ring-2 focus:ring-orange-200 transition-all"
           />
         </div>
 
         {/* Teléfono */}
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-2">
-            Teléfono
+          <label className="block text-sm font-semibold mb-2 text-foreground">
+            Teléfono *
           </label>
           <Input
             type="tel"
@@ -124,65 +208,84 @@ export default function RegistrationForm() {
             value={formData.telefono}
             onChange={handleChange}
             placeholder="+51 9XX XXX XXX"
-            className="w-full px-4 py-2 rounded-lg border-2 border-orange-200 focus:border-orange-500 focus:ring-2 focus:ring-orange-200 transition-all"
+            className="w-full px-4 py-3 rounded-lg border border-orange-200 focus:border-orange-500 focus:ring-2 focus:ring-orange-200 transition-all"
           />
         </div>
 
-        {/* Zona */}
+        {/* Departamento */}
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-2">
-            Zona / Región
+          <label className="block text-sm font-semibold mb-2 text-foreground">
+            Departamento *
           </label>
           <select
-            name="zona"
-            value={formData.zona}
+            name="departamento"
+            value={formData.departamento}
             onChange={handleChange}
-            className="w-full px-4 py-2 rounded-lg border-2 border-orange-200 focus:border-orange-500 focus:ring-2 focus:ring-orange-200 transition-all bg-white"
+            className="w-full px-4 py-3 rounded-lg border border-orange-200 focus:border-orange-500 focus:ring-2 focus:ring-orange-200 transition-all bg-white"
           >
-            <option value="">Selecciona tu zona</option>
-            <option value="sierra">Sierra</option>
-            <option value="costa">Costa</option>
-            <option value="selva">Selva</option>
-            <option value="lima">Lima</option>
-            <option value="otra">Otra</option>
+            {DEPARTAMENTOS.map((dept) => (
+              <option key={dept} value={dept === "Selecciona tu departamento" ? "" : dept}>
+                {dept}
+              </option>
+            ))}
           </select>
         </div>
 
         {/* Grado */}
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-2">
-            Grado de Estudios
+          <label className="block text-sm font-semibold mb-2 text-foreground">
+            Grado de Estudios *
           </label>
           <select
             name="grado"
             value={formData.grado}
             onChange={handleChange}
-            className="w-full px-4 py-2 rounded-lg border-2 border-orange-200 focus:border-orange-500 focus:ring-2 focus:ring-orange-200 transition-all bg-white"
+            className="w-full px-4 py-3 rounded-lg border border-orange-200 focus:border-orange-500 focus:ring-2 focus:ring-orange-200 transition-all bg-white"
           >
             <option value="">Selecciona tu grado</option>
-            <option value="1">1er año de secundaria</option>
-            <option value="2">2do año de secundaria</option>
-            <option value="3">3er año de secundaria</option>
-            <option value="4">4to año de secundaria</option>
-            <option value="5">5to año de secundaria</option>
-            <option value="egresado">Egresado</option>
+            <option value="primaria">Primaria</option>
+            <option value="secundaria-1-2">Secundaria (1-2)</option>
+            <option value="secundaria-3-5">Secundaria (3-5)</option>
+            <option value="tecnico">Técnico</option>
+            <option value="universitario">Universitario</option>
+            <option value="otro">Otro</option>
           </select>
         </div>
 
-        {/* Botón de envío */}
+        {/* Mensaje (opcional, solo si es mensaje) */}
+        {formData.tipo === "mensaje" && (
+          <div>
+            <label className="block text-sm font-semibold mb-2 text-foreground">
+              Tu Mensaje
+            </label>
+            <textarea
+              name="mensaje"
+              value={formData.mensaje}
+              onChange={handleChange}
+              placeholder="Cuéntanos tu pregunta o comentario..."
+              rows={5}
+              className="w-full px-4 py-3 rounded-lg border border-orange-200 focus:border-orange-500 focus:ring-2 focus:ring-orange-200 transition-all resize-none"
+            />
+          </div>
+        )}
+
+        {/* Submit Button */}
         <Button
           type="submit"
           disabled={isSubmitting}
-          className="w-full bg-gradient-to-r from-orange-500 to-yellow-500 hover:from-orange-600 hover:to-yellow-600 text-white font-bold py-3 rounded-lg transition-all duration-300 transform hover:scale-105 disabled:opacity-50"
+          className="w-full py-3 bg-gradient-to-r from-orange-500 to-yellow-500 hover:from-orange-600 hover:to-yellow-600 text-white font-bold rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed"
         >
-          {isSubmitting ? "Registrando..." : "Registrarme Ahora"}
+          {isSubmitting
+            ? "Enviando..."
+            : formData.tipo === "inscripcion"
+              ? "Registrarme"
+              : "Enviar Mensaje"}
         </Button>
-      </form>
 
-      <p className="text-xs text-gray-500 mt-4 text-center">
-        Tus datos son seguros y solo serán usados para conectarte con
-        oportunidades educativas.
-      </p>
+        <p className="text-xs text-muted-foreground text-center">
+          * Campos requeridos. Tus datos serán enviados a 23.amanecer@gmail.com
+        </p>
+      </form>
     </div>
   );
 }

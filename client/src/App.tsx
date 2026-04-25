@@ -8,6 +8,7 @@ import Home from "./pages/Home";
 import Blog from "./pages/Blog";
 import Oportunidades from "./pages/Oportunidades";
 import About from "./pages/About";
+import Convocatoria from "./pages/Convocatoria";
 
 
 function Router() {
@@ -15,6 +16,9 @@ function Router() {
     <Switch>
       <Route path={"/"} component={Home} />
       <Route path={"/about"} component={About} />
+      <Route path={"/blog"} component={Blog} />
+      <Route path={"/oportunidades"} component={Oportunidades} />
+      <Route path={"/convocatoria"} component={Convocatoria} />
       <Route path={"/404"} component={NotFound} />
       {/* Final fallback route */}
       <Route component={NotFound} />

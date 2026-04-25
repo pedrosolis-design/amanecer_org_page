@@ -28,8 +28,15 @@ export default function GallerySection({ images = [] }: GallerySectionProps) {
       id: 1,
       src: "/images/gallery-1.jpg",
       title: "Visita a Chaynabamba",
-      description: "Compartiendo oportunidades educativas con estudiantes de Chaynabamba",
+      description: "Compartiendo oportunidades educativas con estudiantes de Chaynabamba. Solo 2 estudiantes de la promocion anterior postularon a Beca 18.",
       date: "Abril 2026",
+    },
+    {
+      id: 2,
+      src: "/images/coar-lima-charla.jpg",
+      title: "Charla en el COAR Lima",
+      description: "Presentacion sobre oportunidades educativas y programas de desarrollo en el COAR Lima. Jovenes empoderados compartiendo su experiencia.",
+      date: "Marzo 2026",
     },
   ];
 

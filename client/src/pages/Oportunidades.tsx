@@ -101,9 +101,29 @@ export default function Oportunidades() {
       icon: "✈️",
       status: "Próximamente",
     },
+    {
+      id: 9,
+      title: "Beca Perú - Pronabec 2026",
+      type: "Beca Integral",
+      region: "Nacional",
+      deadline: "13 de Mayo, 2026",
+      description:
+        "671 becas para carreras profesionales en universidades e institutos privados. Sin límite de edad. Cobertura hasta finalización de carrera.",
+      icon: "🎯",
+      status: "Abierta",
+      details: {
+        vacantes: 671,
+        cronograma: [
+          "Postulación: 16/4 - 13/5/2026",
+          "Subsanación: 28/4 - 20/5/2026",
+          "Resultados: 5/6/2026",
+          "Aceptación: 6/6 - 12/6/2026"
+        ]
+      }
+    },
   ];
 
-  const types = ["Todas", "Beca Integral", "Beca Parcial", "Programa Académico", "Formación Técnica", "Mentoría", "Intercambio"];
+  const types = ["Todas", "Beca Integral", "Beca Parcial", "Programa Académico", "Formación Técnica", "Mentoría", "Intercambio", "Programa de Desarrollo"];
   const regions = ["Todas", "Nacional", "Lima", "Huancavelica", "Internacional"];
 
   const filtered = opportunities.filter((opp) => {

@@ -63,6 +63,41 @@ export default function TestimoniosSection() {
           </div>
         </div>
 
+        {/* Featured Story - LUMINARTE */}
+        <div className="grid md:grid-cols-2 gap-8 items-center mb-16 animate-slide-up-in">
+          <div className="space-y-6 animate-slide-up-in" style={{ animationDelay: "0.2s" }}>
+            <div>
+              <h3 className="font-display text-3xl font-bold mb-2 text-foreground">
+                LUMINARTE - Un Proyecto de Amanecer
+              </h3>
+              <p className="text-orange-600 font-semibold text-lg">Construyendo Futuros con Proposito</p>
+            </div>
+            <div className="space-y-4 text-muted-foreground leading-relaxed">
+              <p className="font-semibold text-orange-600 text-lg">
+                Creer en uno mismo es el primer paso para alcanzar tus metas.
+              </p>
+              <p>
+                Asi se vivio LUMINARTE, una jornada inspiradora junto a los estudiantes de la I.E. Juan Pablo Vizcardo y Guzman y la I.E. 0035 Nuestra Senora de la Visitacion. Trabajamos en su proyeccion personal, construimos planes de vida y les presentamos diversas oportunidades como programas, concursos y becas.
+              </p>
+              <p>
+                Tambien dialogamos sobre la importancia de atreverse a postular a iniciativas como los COAR, y reflexionamos sobre como construir un futuro con proposito.
+              </p>
+            </div>
+            <div className="pt-4 border-t border-orange-200">
+              <p className="text-sm text-muted-foreground italic">
+                Gracias a cada joven por su entusiasmo y compromiso. El camino hacia el cambio comienza con creer que es posible!
+              </p>
+            </div>
+          </div>
+          <div className="relative h-96 md:h-full overflow-hidden rounded-2xl shadow-2xl">
+            <img
+              src="/images/luminarte-story.jpg"
+              alt="LUMINARTE - Un Proyecto de Amanecer"
+              className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+            />
+          </div>
+        </div>
+
         {/* More Stories Grid */}
         <div className="grid md:grid-cols-3 gap-6">
           {[

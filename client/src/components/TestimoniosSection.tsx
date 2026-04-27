@@ -98,6 +98,36 @@ export default function TestimoniosSection() {
           </div>
         </div>
 
+        {/* Featured Story - Lircayccasa */}
+        <div className="grid md:grid-cols-2 gap-8 items-center mb-16 animate-slide-up-in">
+          <div className="relative h-96 md:h-full overflow-hidden rounded-2xl shadow-2xl">
+            <img
+              src="/images/lircayccasa-story.png"
+              alt="I.E. José María Eguren en Lircayccasa"
+              className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+            />
+          </div>
+          <div className="space-y-6 animate-slide-up-in" style={{ animationDelay: "0.2s" }}>
+            <div>
+              <h3 className="font-display text-3xl font-bold mb-2 text-foreground">
+                Lircayccasa, Huancavelica
+              </h3>
+              <p className="text-orange-600 font-semibold text-lg">Cerrando Brechas Digitales</p>
+            </div>
+            <div className="space-y-4 text-muted-foreground leading-relaxed">
+              <p className="font-semibold text-orange-600 text-lg">
+                En nuestra visita a la I.E. José María Eguren en Lircayccasa, nos encontramos con una realidad que se repite en muchas zonas rurales:
+              </p>
+              <p>
+                Solo 1 estudiante de la promoción pasada postuló a Beca 18, y solo 1 al COAR. La razón principal: la falta de acceso a internet en casa. Esta brecha digital no solo impide que los jóvenes se informen, sino que también limita sus posibilidades de prepararse y postular.
+              </p>
+              <p>
+                Desde AMANECER, seguimos comprometidos con acercar información, orientación y oportunidades reales a cada rincón del país. Porque el talento está en todas partes. Lo que falta son las herramientas para que florezca.
+              </p>
+            </div>
+          </div>
+        </div>
+
         {/* More Stories Grid */}
         <div className="grid md:grid-cols-3 gap-6">
           {[

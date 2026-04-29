@@ -78,9 +78,14 @@ export default function Home() {
                 Convocatoria
               </button>
             </Link>
-            <Button className="bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white shadow-lg hover:shadow-xl transition-all duration-300">
+            <a
+              href="https://chat.whatsapp.com/Kxtj5DtwLLf8YNRyFpgGfa"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block px-6 py-2 bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white font-medium rounded-lg shadow-lg hover:shadow-xl transition-all duration-300"
+            >
               Únete Ahora
-            </Button>
+            </a>
           </div>
         </div>
       </nav>

@@ -38,13 +38,6 @@ export default function GallerySection({ images = [] }: GallerySectionProps) {
       description: "Presentacion sobre oportunidades educativas y programas de desarrollo en el COAR Lima. Jovenes empoderados compartiendo su experiencia.",
       date: "Marzo 2026",
     },
-    {
-      id: 3,
-      src: "/manus-storage/santa-rosa-lima-2025_26a3a37d.png",
-      title: "Jornada en Santa Rosa de Lima",
-      description: "Encuentro inspirador con estudiantes de la I.E. Santa Rosa de Lima. Compartiendo informacion sobre becas, oportunidades educativas y programas de desarrollo personal. Jovenes motivados en busca de un mejor futuro.",
-      date: "2025",
-    },
   ];
 
   const galleryImages = images.length > 0 ? images : defaultImages;

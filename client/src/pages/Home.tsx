@@ -8,6 +8,7 @@ import GallerySection from "@/components/GallerySection";
 import ConvocatoriasSection from "@/components/ConvocatoriasSection";
 import CommunitySection from "@/components/CommunitySection";
 import RegistrationForm from "@/components/RegistrationForm";
+import FAQSection from "@/components/FAQSection";
 
 /**
  * Amanecer: Educación del Mañana
@@ -371,6 +372,9 @@ export default function Home() {
 
       {/* Community Section */}
       <CommunitySection />
+
+      {/* FAQ Section */}
+      <FAQSection />
 
       {/* Registration Form Section */}
       <section id="registration-form" className="relative py-20 md:py-32 overflow-hidden">

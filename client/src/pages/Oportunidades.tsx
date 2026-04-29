@@ -121,6 +121,62 @@ export default function Oportunidades() {
         ]
       }
     },
+    {
+      id: 10,
+      title: "Becas Contigo - Zegel e IDAT",
+      type: "Beca Parcial",
+      region: "Nacional",
+      deadline: "Diciembre, 2024",
+      description:
+        "5,000 medias becas (hasta 50% de descuento) para estudiar en Zegel e IDAT. Válido para nuevas matrículas. Modalidad presencial o virtual.",
+      icon: "🎓",
+      status: "Abierta",
+      details: {
+        vacantes: 5000,
+        beneficios: [
+          "Hasta 50% de descuento",
+          "Inducción previa al inicio de clases",
+          "Evaluación MIDE automática",
+          "Acceso a programa de empleabilidad desde el primer ciclo",
+          "Modalidad: en campus o virtual"
+        ],
+        carreras: [
+          "Administración de Negocios",
+          "Computación e Informática",
+          "Diseño Gráfico",
+          "Marketing",
+          "Contabilidad",
+          "Redes y Comunicaciones"
+        ]
+      }
+    },
+    {
+      id: 11,
+      title: "Beca ENAE - Maestrías en España",
+      type: "Intercambio",
+      region: "Internacional",
+      deadline: "7 de Junio, 2026",
+      description:
+        "Medias becas (50% descuento) para maestrías en España. Dirección de Agronegocios, Gestión de Riesgos, International Trade, Logística. Presencial, semipresencial y virtual.",
+      icon: "✈️",
+      status: "Abierta",
+      details: {
+        beneficios: [
+          "50% de exención del costo total",
+          "Materiales de estudio",
+          "Asesoramiento para visado",
+          "Facilidad de pago fraccionado",
+          "Alojamiento (programas semipresenciales)",
+          "Seguro médico"
+        ],
+        maestrias: [
+          "Dirección de Agronegocios",
+          "Gestión de Riesgos en las Organizaciones",
+          "Master In International Trade",
+          "Logística y Dirección de Operaciones"
+        ]
+      }
+    },
   ];
 
   const types = ["Todas", "Beca Integral", "Beca Parcial", "Programa Académico", "Formación Técnica", "Mentoría", "Intercambio", "Programa de Desarrollo"];

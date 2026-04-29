@@ -3,7 +3,7 @@
  * Displays community links, social media, and active convocations
  */
 
-import { MessageCircle, Instagram, Megaphone, Linkedin } from "lucide-react";
+import { MessageCircle, Instagram, Megaphone, Linkedin, Music, Facebook } from "lucide-react";
 
 export default function CommunitySection() {
   const convocations = [
@@ -96,6 +96,42 @@ export default function CommunitySection() {
                     Amanecer Edu
                   </h4>
                   <p className="text-sm text-muted-foreground">Síguenos en LinkedIn</p>
+                </div>
+              </a>
+
+              {/* TikTok */}
+              <a
+                href="https://www.tiktok.com/@amanecer.edu.ong"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex items-center gap-4 p-5 rounded-2xl border-2 border-black/20 hover:border-black/40 bg-black/5 hover:bg-black/10 transition-all duration-300 shadow-sm hover:shadow-lg"
+              >
+                <div className="w-14 h-14 bg-gradient-to-br from-black to-gray-800 rounded-full flex items-center justify-center text-white shadow-lg group-hover:scale-110 transition-transform duration-300">
+                  <Music className="w-7 h-7" />
+                </div>
+                <div>
+                  <h4 className="font-display font-bold text-foreground text-lg">
+                    @amanecer.edu.ong
+                  </h4>
+                  <p className="text-sm text-muted-foreground">Síguenos en TikTok</p>
+                </div>
+              </a>
+
+              {/* Facebook */}
+              <a
+                href="https://www.facebook.com/people/Amanecer-Oportunidades/pfbid02Gb9JqH7nAushwYath2JK4Aa5vXyZXoLTu2bcpRnabjXbWuuiwZ4zys9pPnuSB3BSl/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex items-center gap-4 p-5 rounded-2xl border-2 border-blue-300 hover:border-blue-500 bg-blue-50/50 hover:bg-blue-50 transition-all duration-300 shadow-sm hover:shadow-lg"
+              >
+                <div className="w-14 h-14 bg-gradient-to-br from-blue-600 to-blue-800 rounded-full flex items-center justify-center text-white shadow-lg group-hover:scale-110 transition-transform duration-300">
+                  <Facebook className="w-7 h-7" />
+                </div>
+                <div>
+                  <h4 className="font-display font-bold text-foreground text-lg">
+                    Amanecer Oportunidades
+                  </h4>
+                  <p className="text-sm text-muted-foreground">Síguenos en Facebook</p>
                 </div>
               </a>
             </div>

@@ -127,21 +127,25 @@ export default function Home() {
                 className="flex flex-col sm:flex-row gap-4 animate-slide-up-in"
                 style={{ animationDelay: "0.4s" }}
               >
-                <Button
-                  size="lg"
-                  className="bg-gradient-to-r from-yellow-400 to-orange-500 hover:from-yellow-500 hover:to-orange-600 text-white font-semibold gap-2 shadow-lg hover:shadow-xl transition-all duration-300"
-                >
-                  Explorar Oportunidades <ArrowRight className="w-5 h-5" />
-                </Button>
-                <Link href="/about">
+                <Link href="/oportunidades">
                   <Button
                     size="lg"
-                    variant="outline"
-                    className="border-2 border-white text-white hover:bg-white/20 backdrop-blur-sm transition-all duration-300 font-semibold cursor-pointer"
+                    className="bg-gradient-to-r from-yellow-400 to-orange-500 hover:from-yellow-500 hover:to-orange-600 text-white font-semibold gap-2 shadow-lg hover:shadow-xl transition-all duration-300"
                   >
-                    Conocer Más
+                    Explorar Oportunidades <ArrowRight className="w-5 h-5" />
                   </Button>
                 </Link>
+                <button
+                  onClick={() => {
+                    const formSection = document.querySelector('#registration-form');
+                    if (formSection) {
+                      formSection.scrollIntoView({ behavior: 'smooth' });
+                    }
+                  }}
+                  className="px-8 py-3 bg-white/20 border-2 border-white text-white hover:bg-white/30 backdrop-blur-sm transition-all duration-300 font-semibold rounded-lg cursor-pointer"
+                >
+                  Descubre Cómo Ayudarnos
+                </button>
               </div>
 
               {/* Stats */}
@@ -364,7 +368,7 @@ export default function Home() {
       <CommunitySection />
 
       {/* Registration Form Section */}
-      <section className="relative py-20 md:py-32 overflow-hidden">
+      <section id="registration-form" className="relative py-20 md:py-32 overflow-hidden">
         <div
           className="absolute inset-0 z-0"
           style={{
@@ -456,13 +460,23 @@ export default function Home() {
                   </a>
                 </li>
                 <li>
-                  <a href="https://chat.whatsapp.com/Kxtj5DtwLLf8YNRyFpgGfa" target="_blank" rel="noopener noreferrer" className="hover:text-orange-400 transition-colors duration-300">
-                    WhatsApp Comunidad
+                  <a href="https://www.tiktok.com/@amanecer.edu.ong" target="_blank" rel="noopener noreferrer" className="hover:text-orange-400 transition-colors duration-300">
+                    TikTok
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="hover:text-orange-400 transition-colors duration-300">
-                    Contacto
+                  <a href="https://www.facebook.com/people/Amanecer-Oportunidades/pfbid02Gb9JqH7nAushwYath2JK4Aa5vXyZXoLTu2bcpRnabjXbWuuiwZ4zys9pPnuSB3BSl/" target="_blank" rel="noopener noreferrer" className="hover:text-orange-400 transition-colors duration-300">
+                    Facebook
+                  </a>
+                </li>
+                <li>
+                  <a href="https://www.linkedin.com/company/amanecer-edu/?viewAsMember=true" target="_blank" rel="noopener noreferrer" className="hover:text-orange-400 transition-colors duration-300">
+                    LinkedIn
+                  </a>
+                </li>
+                <li>
+                  <a href="https://chat.whatsapp.com/Kxtj5DtwLLf8YNRyFpgGfa" target="_blank" rel="noopener noreferrer" className="hover:text-orange-400 transition-colors duration-300">
+                    WhatsApp Comunidad
                   </a>
                 </li>
               </ul>

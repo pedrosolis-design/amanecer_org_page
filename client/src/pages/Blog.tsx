@@ -74,6 +74,17 @@ export default function Blog() {
       image: "🤝",
       readTime: "6 min",
     },
+    {
+      id: 7,
+      title: "Cómo escribir una carta de motivación efectiva para becas",
+      excerpt:
+        "Aprende los secretos para escribir una carta de motivación que destaque tu perfil y aumente tus probabilidades de obtener la beca que deseas.",
+      author: "Equipo Amanecer",
+      date: "25 de Abril, 2026",
+      category: "Becas",
+      image: "✍️",
+      readTime: "8 min",
+    },
   ];
 
   const categories = ["Todos", "Becas", "Programas", "Historias", "Impacto"];
@@ -187,10 +198,12 @@ export default function Blog() {
 
                   {/* Read More */}
                   <div className="mt-4 pt-4 border-t border-orange-200">
-                    <button className="text-orange-600 font-semibold text-sm flex items-center gap-2 hover:gap-3 transition-all duration-300 group/btn">
-                      Leer más
-                      <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
-                    </button>
+                    <Link href={article.id === 7 ? "/blog/carta-motivacion" : "/blog"}>
+                      <button className="text-orange-600 font-semibold text-sm flex items-center gap-2 hover:gap-3 transition-all duration-300 group/btn cursor-pointer">
+                        Leer más
+                        <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
+                      </button>
+                    </Link>
                   </div>
                 </div>
               </div>
